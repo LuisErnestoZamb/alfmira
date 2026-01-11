@@ -1,23 +1,97 @@
-import { Home, ArrowRight } from 'lucide-react';
+import { Home, MapPin, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function PropertiesPage() {
+  const casas = [
+    { id: 1, precio: "540.000€", titulo: "Villa Mediterránea", ubicacion: "Valencia, ES", area: "150m²" },
+    { id: 2, precio: "820.000€", titulo: "Ático Loft Moderno", ubicacion: "Madrid, ES", area: "120m²" },
+    { id: 3, precio: "1.250.000€", titulo: "Residencia Colonial", ubicacion: "Sevilla, ES", area: "350m²" },
+    { id: 4, precio: "310.000€", titulo: "Apartamento Costero", ubicacion: "Málaga, ES", area: "85m²" },
+    { id: 5, precio: "950.000€", titulo: "Finca Rústica", ubicacion: "Segovia, ES", area: "500m²" },
+    { id: 6, precio: "425.000€", titulo: "Casa de Campo", ubicacion: "Asturias, ES", area: "180m²" },
+  ];
+
   return (
-    <div className="py-16 max-w-6xl mx-auto px-6">
-      <div className="flex items-center space-x-3 mb-10">
-        <Home className="text-blue-600" size={32} />
-        <h1 className="text-4xl font-bold">Nuestras Propiedades</h1>
-      </div>
-      <div className="grid md:grid-cols-3 gap-8">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div key={i} className="bg-white border border-slate-100 shadow-sm rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
-            <div className="h-48 bg-slate-50" />
-            <div className="p-6">
-              <span className="text-blue-600 font-bold">$450,000</span>
-              <h4 className="text-xl font-semibold mt-2">Casa de Lujo #{i}</h4>
-              <p className="text-slate-500 text-sm">Ubicación Premium • 3 Hab</p>
+    <div className="bg-white min-h-screen py-16">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Cabecera de Sección */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <div className="flex items-center space-x-2 text-orange-600 font-bold tracking-widest text-sm uppercase mb-3">
+              <Home size={18} />
+              <span>Catálogo Exclusivo</span>
             </div>
+            <h1 className="text-5xl font-black text-stone-800 tracking-tight">
+              Propiedades con <br />
+              <span className="text-orange-600 underline decoration-stone-100 underline-offset-8">Garantía Jurídica.</span>
+            </h1>
           </div>
-        ))}
+          <p className="text-stone-500 font-medium max-w-xs border-l-2 border-orange-100 pl-6">
+            Todas nuestras propiedades incluyen una auditoría de títulos previa para su tranquilidad.
+          </p>
+        </div>
+
+        {/* Grid de Propiedades */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {casas.map((casa) => (
+            <div key={casa.id} className="group cursor-pointer">
+              {/* Contenedor de Imagen */}
+              <div className="relative aspect-[4/3] rounded-[2rem] bg-stone-100 overflow-hidden mb-6 border border-stone-100 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-100 group-hover:-translate-y-2">
+
+                {/* Badge de Protección Legal */}
+                <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 border border-orange-100 shadow-sm">
+                  <ShieldCheck className="text-orange-600" size={16} />
+                  <span className="text-[10px] font-black text-stone-800 uppercase tracking-tighter">Legal Verified</span>
+                </div>
+
+                {/* Placeholder de imagen (Aquí iría el <img />) */}
+                <div className="w-full h-full bg-gradient-to-br from-stone-50 to-stone-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
+                  <Home size={48} className="text-stone-300" />
+                </div>
+
+                {/* Botón Flotante */}
+                <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                  <ArrowUpRight size={24} />
+                </div>
+              </div>
+
+              {/* Información */}
+              <div className="px-2">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-2xl font-black text-stone-800 group-hover:text-orange-600 transition-colors">
+                    {casa.titulo}
+                  </h3>
+                  <span className="text-xl font-bold text-orange-600">{casa.precio}</span>
+                </div>
+
+                <div className="flex items-center text-stone-500 space-x-4 text-sm font-semibold">
+                  <div className="flex items-center">
+                    <MapPin size={14} className="mr-1 text-orange-600" />
+                    {casa.ubicacion}
+                  </div>
+                  <div className="h-1 w-1 bg-stone-300 rounded-full" />
+                  <span>{casa.area}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Call to Action Final */}
+        <div className="mt-24 p-12 rounded-[3rem] bg-stone-900 text-center text-white relative overflow-hidden">
+          <div className="relative z-10">
+            <h2 className="text-3xl font-bold mb-4">¿No encuentras lo que buscas?</h2>
+            <p className="text-stone-400 mb-8 max-w-md mx-auto">Nuestro equipo legal e inmobiliario puede buscar propiedades personalizadas para ti.</p>
+            <Link href="/contact" className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-2xl font-black transition-all">
+              SOLICITAR BÚSQUEDA PERSONALIZADA
+            </Link>
+          </div>
+          {/* Círculos decorativos de fondo */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/10 rounded-full -mr-20 -mt-20 blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-600/5 rounded-full -ml-20 -mb-20 blur-3xl" />
+        </div>
+
       </div>
     </div>
   );
