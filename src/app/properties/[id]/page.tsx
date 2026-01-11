@@ -3,7 +3,7 @@ import { MapPin, Maximize, BedDouble, Bath, ShieldCheck, CheckCircle2, ArrowLeft
 import Link from 'next/link';
 import { GalleryList } from './gallery';
 
-export default async function PropertyDetail({ params }: { params: { id: string } }) {
+export default async function PropertyDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   return (
