@@ -82,11 +82,13 @@ export default function PropertiesPage() {
                 </div>
 
                 {/* Imagen Real de Pexels */}
-                <img
-                  src={casa.imagen}
-                  alt={casa.titulo}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <picture>
+                  <img
+                    src={casa.imagen}
+                    alt={casa.titulo}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </picture>
 
                 {/* Botón Flotante */}
                 <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
