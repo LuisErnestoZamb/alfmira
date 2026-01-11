@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 export default function PropertiesPage() {
   const casas = [
-    { id: 1, precio: "540.000€", titulo: "Villa Mediterránea", ubicacion: "Valencia, VE", area: "150m²" },
-    { id: 2, precio: "820.000€", titulo: "Ático Loft Moderno", ubicacion: "Caracas, VE", area: "120m²" },
-    { id: 3, precio: "1.250.000€", titulo: "Residencia Colonial", ubicacion: "La Grita, VE", area: "350m²" },
-    { id: 4, precio: "310.000€", titulo: "Apartamento Costero", ubicacion: "Merida, VE", area: "85m²" },
-    { id: 5, precio: "950.000€", titulo: "Finca Rústica", ubicacion: "Maracaibo, VE", area: "500m²" },
-    { id: 6, precio: "425.000€", titulo: "Casa de Campo", ubicacion: "Miranda, VE", area: "180m²" },
+    { id: 1, precio: "540.000$", titulo: "Villa Mediterránea", ubicacion: "Valencia, VE", area: "150m²" },
+    { id: 2, precio: "820.000$", titulo: "Ático Loft Moderno", ubicacion: "Caracas, VE", area: "120m²" },
+    { id: 3, precio: "1.250.000$", titulo: "Residencia Colonial", ubicacion: "La Grita, VE", area: "350m²" },
+    { id: 4, precio: "310.000$", titulo: "Apartamento Costero", ubicacion: "Merida, VE", area: "85m²" },
+    { id: 5, precio: "950.000$", titulo: "Finca Rústica", ubicacion: "Maracaibo, VE", area: "500m²" },
+    { id: 6, precio: "425.000$", titulo: "Casa de Campo", ubicacion: "Miranda, VE", area: "180m²" },
   ];
 
   return (
