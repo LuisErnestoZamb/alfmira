@@ -3,52 +3,90 @@ import Link from 'next/link';
 
 export default function PropertiesPage() {
   const casas = [
-    { id: 1, precio: "540.000$", titulo: "Villa Mediterránea", ubicacion: "Valencia, VE", area: "150m²" },
-    { id: 2, precio: "820.000$", titulo: "Ático Loft Moderno", ubicacion: "Caracas, VE", area: "120m²" },
-    { id: 3, precio: "1.250.000$", titulo: "Residencia Colonial", ubicacion: "La Grita, VE", area: "350m²" },
-    { id: 4, precio: "310.000$", titulo: "Apartamento Costero", ubicacion: "Merida, VE", area: "85m²" },
-    { id: 5, precio: "950.000$", titulo: "Finca Rústica", ubicacion: "Maracaibo, VE", area: "500m²" },
-    { id: 6, precio: "425.000$", titulo: "Casa de Campo", ubicacion: "Miranda, VE", area: "180m²" },
+    {
+      id: 1,
+      precio: "540.000$",
+      titulo: "Villa Mediterránea",
+      ubicacion: "Valencia, VE",
+      area: "150m²",
+      imagen: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 2,
+      precio: "820.000$",
+      titulo: "Ático Loft Moderno",
+      ubicacion: "Caracas, VE",
+      area: "120m²",
+      imagen: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 3,
+      precio: "1.250.000$",
+      titulo: "Residencia Colonial",
+      ubicacion: "La Grita, VE",
+      area: "350m²",
+      imagen: "https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 4,
+      precio: "310.000$",
+      titulo: "Apartamento Costero",
+      ubicacion: "Merida, VE",
+      area: "85m²",
+      imagen: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 5,
+      precio: "950.000$",
+      titulo: "Finca Rústica",
+      ubicacion: "Maracaibo, VE",
+      area: "500m²",
+      imagen: "https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+      id: 6,
+      precio: "425.000$",
+      titulo: "Casa de Campo",
+      ubicacion: "Miranda, VE",
+      area: "180m²",
+      imagen: "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
   ];
 
   return (
     <div className="bg-white min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Cabecera de Sección */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-2xl">
-            <div className="flex items-center space-x-2 text-orange-600 font-bold tracking-widest text-sm uppercase mb-3">
-              <Home size={18} />
-              <span>Catálogo Exclusivo</span>
-            </div>
-            <h1 className="text-5xl font-black text-stone-800 tracking-tight">
-              Propiedades con <br />
-              <span className="text-orange-600 underline decoration-stone-100 underline-offset-8">Garantía Jurídica.</span>
-            </h1>
-          </div>
-          <p className="text-stone-500 font-medium max-w-xs border-l-2 border-orange-100 pl-6">
-            Todas nuestras propiedades incluyen una auditoría de títulos previa para su tranquilidad.
+        {/* Encabezado */}
+        <div className="mb-16">
+          <h1 className="text-5xl font-black text-stone-800 tracking-tight mb-4">
+            Propiedades <span className="text-orange-600">Disponibles</span>
+          </h1>
+          <p className="text-stone-500 font-medium border-l-4 border-orange-600 pl-4">
+            Inmuebles verificados legalmente en toda Venezuela.
           </p>
         </div>
 
         {/* Grid de Propiedades */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {casas.map((casa) => (
-            <div key={casa.id} className="group cursor-pointer">
-              {/* Contenedor de Imagen */}
-              <div className="relative aspect-[4/3] rounded-[2rem] bg-stone-100 overflow-hidden mb-6 border border-stone-100 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-100 group-hover:-translate-y-2">
+            <Link href={`/properties/${casa.id}`} key={casa.id} className="group block cursor-pointer">
 
-                {/* Badge de Protección Legal */}
+              {/* Contenedor de Imagen */}
+              <div className="relative aspect-[4/3] rounded-[2.5rem] bg-stone-100 overflow-hidden mb-6 border border-stone-100 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-100 group-hover:-translate-y-2">
+
+                {/* Badge Legal */}
                 <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full flex items-center space-x-2 border border-orange-100 shadow-sm">
                   <ShieldCheck className="text-orange-600" size={16} />
                   <span className="text-[10px] font-black text-stone-800 uppercase tracking-tighter">Legal Verified</span>
                 </div>
 
-                {/* Placeholder de imagen (Aquí iría el <img />) */}
-                <div className="w-full h-full bg-gradient-to-br from-stone-50 to-stone-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                  <Home size={48} className="text-stone-300" />
-                </div>
+                {/* Imagen Real de Pexels */}
+                <img
+                  src={casa.imagen}
+                  alt={casa.titulo}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
 
                 {/* Botón Flotante */}
                 <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
@@ -74,7 +112,7 @@ export default function PropertiesPage() {
                   <span>{casa.area}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -91,7 +129,6 @@ export default function PropertiesPage() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/10 rounded-full -mr-20 -mt-20 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-600/5 rounded-full -ml-20 -mb-20 blur-3xl" />
         </div>
-
       </div>
     </div>
   );

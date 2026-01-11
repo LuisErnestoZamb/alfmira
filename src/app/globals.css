@@ -1,7 +1,7 @@
 @import "tailwindcss";
+@import "react-image-gallery/styles/css/image-gallery.css";
 
 @theme {
-  /* Definimos los colores personalizados para usarlos como clases de Tailwind */
   --color-brand-orange: #ea580c;
   --color-brand-brown: #432818;
   --color-brand-cream: #fffaf7;
