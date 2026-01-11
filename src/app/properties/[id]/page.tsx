@@ -1,7 +1,6 @@
 
-import { MapPin, Maximize, BedDouble, Bath, ShieldCheck, CheckCircle2, ArrowLeft, ArrowRight } from 'lucide-react';
+import { MapPin, Maximize, BedDouble, Bath, ShieldCheck, CheckCircle2, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import ImageGallery from 'react-image-gallery';
 import { GalleryList } from './gallery';
 
 export default async function PropertyDetail({ params }: { params: { id: string } }) {
