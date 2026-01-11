@@ -16,7 +16,7 @@ export default function HomePage() {
 
 				<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 					<Link href="/properties" className="bg-orange-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform flex items-center group">
-						Ver Casas <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+						Ver inmuebles <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
 					</Link>
 					<Link href="/legal" className="bg-white border-2 border-stone-800 text-stone-800 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-stone-50 transition-colors">
 						Servicios Legales
