@@ -41,7 +41,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h4 className="font-bold text-stone-800">Oficina Central</h4>
-                <p className="text-stone-600">Calle de la Seguridad 42, Madrid</p>
+                <p className="text-stone-600">Caracas, Venezuela</p>
               </div>
             </div>
           </div>
