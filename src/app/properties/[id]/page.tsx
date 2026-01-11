@@ -1,34 +1,11 @@
-"use client";
 
 import { MapPin, Maximize, BedDouble, Bath, ShieldCheck, CheckCircle2, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import ImageGallery from 'react-image-gallery';
+import { GalleryList } from './gallery';
 
-export default function PropertyDetail({ params }: { params: { id: string } }) {
-
-  // Imágenes de Pexels (Arquitectura y diseño de interiores)
-  const images = [
-    {
-      original: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      thumbnail: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=150',
-      description: 'Fachada principal'
-    },
-    {
-      original: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      thumbnail: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=150',
-      description: 'Salón de estar'
-    },
-    {
-      original: 'https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      thumbnail: 'https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=150',
-      description: 'Cocina gourmet'
-    },
-    {
-      original: 'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      thumbnail: 'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=150',
-      description: 'Dormitorio principal'
-    }
-  ];
+export default async function PropertyDetail({ params }: { params: { id: string } }) {
+  const { id } = await params;
 
   return (
     <div className="bg-white min-h-screen pb-20">
@@ -41,29 +18,11 @@ export default function PropertyDetail({ params }: { params: { id: string } }) {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8">
 
-          {/* GALERÍA CUSTOMIZADA */}
-          <div className="rounded-[2.5rem] overflow-hidden mb-8 shadow-xl border border-stone-100 bg-stone-50">
-            <ImageGallery
-              items={images}
-              showPlayButton={false}
-              showFullscreenButton={true}
-              slideDuration={450}
-              renderLeftNav={(onClick, disabled) => (
-                <button className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-orange-600 transition-all" onClick={onClick} disabled={disabled}>
-                  <ArrowLeft size={24} />
-                </button>
-              )}
-              renderRightNav={(onClick, disabled) => (
-                <button className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-orange-600 transition-all" onClick={onClick} disabled={disabled}>
-                  <ArrowRight size={24} />
-                </button>
-              )}
-            />
-          </div>
+          <GalleryList id={id} />
 
           <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-4">
             <div>
-              <h1 className="text-4xl font-black text-stone-800 mb-2 leading-tight">Villa Mediterránea de Lujo</h1>
+              <h1 className="text-4xl font-black text-stone-800 mb-2 leading-tight">Villa Mediterránea de Lujo {id}</h1>
               <div className="flex items-center text-stone-500 font-bold">
                 <MapPin size={18} className="mr-2 text-orange-600" />
                 Valencia, España

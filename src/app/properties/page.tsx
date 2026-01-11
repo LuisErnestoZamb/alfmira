@@ -1,4 +1,4 @@
-import { Home, MapPin, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { MapPin, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function PropertiesPage() {
