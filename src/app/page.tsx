@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function HomePage() {
 	return (
-		<main className="relative pt-20">
+		<div className="relative pt-20">
 			<div className="max-w-5xl mx-auto px-6 text-center">
 				<h1 className="text-5xl md:text-7xl font-black text-stone-800 leading-[1.1] mb-8">
 					Encuentra tu hogar. <br />
@@ -26,6 +26,6 @@ export default function HomePage() {
 
 			{/* Decoración sutil de fondo */}
 			<div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-full max-w-4xl h-96 bg-orange-50/50 blur-3xl rounded-full" />
-		</main>
+		</div>
 	);
 }

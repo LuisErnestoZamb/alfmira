@@ -1,8 +1,5 @@
 "use client";
 
-import { createClient } from '@supabase/supabase-js'
-// const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
@@ -11,11 +8,6 @@ import Providers from './providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false);
-
-	const secret = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL
-
-	console.log(secret) // OK (solo en servidor) console.log(publicValue) // OK (expuesto al cliente)
-
 	const links = [
 		{ name: 'Propiedades', href: '/properties' },
 		{ name: 'Legales', href: '/legal' },
